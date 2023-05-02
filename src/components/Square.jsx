@@ -1,9 +1,13 @@
-import { useState } from "react";
+const Square = ({ value, onClick, isWinningSquare }) => {
+  const colorClassName = value === "X" ? "text-green" : "text-orange";
+  const winningClassName = isWinningSquare ? "winning" : "";
 
-// eslint-disable-next-line react/prop-types
-const Square = ({ value, handleSquareClicked }) => {
   return (
-    <button type="btn" className="square" onClick={handleSquareClicked}>
+    <button
+      type="button"
+      className={`square ${colorClassName} ${winningClassName}`}
+      onClick={onClick}
+    >
       {value}
     </button>
   );
